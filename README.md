@@ -1,6 +1,6 @@
 # ECMAScript Placeholder Syntax
 
-This proposal is for the new operator `*`. This operator is syntactic sugar for creating an anonymous function
+This proposal is for the new operator `?`. This operator is syntactic sugar for creating an anonymous function
 which applies its arguments to the expression given.
 
 ## Examples
@@ -9,7 +9,7 @@ calling a prototype method:
 const lowercase = ['a','b','c']
 
 // with placeholder syntax
-const uppercase = lowercase.map(*.toUpperCase())
+const uppercase = lowercase.map(?.toUpperCase())
 // without placeholder syntax
 const uppercase =lowercase.map(string => string.toUpperCase())
 ```
@@ -19,7 +19,7 @@ passing to another expression:
 const phrases = ['hello', 'world']
 
 // with placeholder syntax
-phrases.forEach(console.log(*))
+phrases.forEach(console.log(?))
 // transforms into
 phrases.forEach(phrase => console.log(phrase))
 ```
@@ -29,7 +29,7 @@ multiple arguments:
 const numbers = [1,3,10,5]
 
 // with placeholder syntax
-const sum = numbers.reduce(* + *)
+const sum = numbers.reduce(? + ?)
 // without placeholder syntax
 const sum = numbers.reduce((acc, val) => acc + val)
 ```
@@ -42,7 +42,7 @@ codebases need every variable to be explicit.
 This syntax already exists in [Scala](https://docs.scala-lang.org/cheatsheets/#functions)
 
 ## Limitations
-The `*` operator can only be used in the same scope that arguments are passed to a function.
+The `?` operator can only be used in the same scope that arguments are passed to a function.
 
 ## Unknowns
 - Can type libraries like Flow and Typescript handle this syntax, which has to be equivalent to un-typed anonymous functions?
